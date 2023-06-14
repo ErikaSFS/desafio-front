@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
-
+//import { AutnInterceptorProviders } from 'src/app/core/auth/http-interceptors/autn.interceptor';
 
 
 
@@ -53,7 +53,8 @@ import { MatSelectModule } from '@angular/material/select';
 
 
   ],
-  providers: [],
+
+  providers:  [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

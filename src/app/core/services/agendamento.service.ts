@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Especialidade, Medico } from '../interfaces/consultasDados';
 import { environments } from 'src/environments/environments';
-import { EspecialidadesResponse } from 'src/app/core/models/especialidades-response.model';
+import  { AgendaResponse } from '../models/agenda-response.model';
+
 
 
 
@@ -30,7 +31,7 @@ export class AgendamentoService {
     idMedico: string,
     idEspecialidade: string
   ): Observable<any> {
-    return this.http.get<EspecialidadesResponse>(
+    return this.http.get<AgendaResponse>(
       environments['api'] +
         'agendas/' +
         '?medico=' +
@@ -45,7 +46,7 @@ export class AgendamentoService {
     idEspecialidade: string,
     data: string
   ): Observable<any> {
-    return this.http.get<EspecialidadesResponse>(
+    return this.http.get<AgendaResponse>(
       environments['api'] +
         `agendas/?medico=${idMedico}&especialidade=${idEspecialidade}&data_inicio=${data}&data_final=${data}`
     );
