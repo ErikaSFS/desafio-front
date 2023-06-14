@@ -2,7 +2,7 @@ import { environments } from '../../../environments/environments';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { Register } from '../models/register/register.model';
+import { User } from '../models/register.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ import { Register } from '../models/register/register.model';
 export class LoginService {
   constructor(private http: HttpClient) {}
 
-  async login(login: Register) {
+  async login(login: User) {
     const result = await firstValueFrom(
       this.http.post<any>(environments['api'] + 'users/login/', login)
    );

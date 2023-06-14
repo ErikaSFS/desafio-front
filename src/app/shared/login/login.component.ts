@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import { LoginService } from 'src/app/core/services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Register } from 'src/app/core/models/register/register.model';
+import { User } from 'src/app/core/models/register.model';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) { }
 
-  user: Register = {
+  user: User = {
     username: '',
     password: '',
   };

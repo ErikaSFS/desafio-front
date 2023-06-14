@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ConsultasService } from 'src/app/core/services/consultas.service';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Consulta } from '../../core/interfaces/consultasDados';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConsultaComponent } from '../consulta/consulta.component';
+import { ConsultaService } from 'src/app/core/services/consulta.service';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private _snackBar: MatSnackBar,
-    private consultasService: ConsultasService
+    private consultaService: ConsultaService
   ) {}
 
   ngOnInit(): void {
@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   }
 
   AllConsultas() {
-    this.consultasService.getConsulta().subscribe((consultas) => {
+    this.consultaService.getConsulta().subscribe((consultas) => {
       this.responseConsultas = consultas;
     });
   }
@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
   }
 
   deleteConsulta(id: any) {
-    this.consultasService.deleteConsulta(id).subscribe(() => {
+    this.consultaService.deleteConsulta(id).subscribe(() => {
       this.openSnackBarGreen('Consulta deletada!', 'Fechar');
       this.AllConsultas();
     });

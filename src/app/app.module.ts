@@ -7,16 +7,20 @@ import { HomeComponent } from './shared/home/home.component';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { ConsultaComponent } from './shared/consulta/consulta.component';
-import { HeaderComponent } from './core/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 
@@ -27,7 +31,6 @@ import {MatTableModule} from '@angular/material/table';
     LoginComponent,
     RegisterComponent,
     ConsultaComponent,
-    HeaderComponent,
   
   ],
   imports: [
@@ -42,7 +45,13 @@ import {MatTableModule} from '@angular/material/table';
     MatCheckboxModule,
     MatButtonModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatSelectModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
