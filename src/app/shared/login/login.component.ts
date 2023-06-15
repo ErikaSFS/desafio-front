@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { LoginService } from 'src/app/core/services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/core/models/register.model';
+//import { mockServerApi } from 'src/app/core/services/mock-server-api.service';
+
 
 @Component({
   selector: 'app-login',
@@ -29,7 +31,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private loginService: LoginService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    //private mockServerApi : mockServerApi
   ) { }
 
   user: User = {
@@ -38,6 +41,9 @@ export class LoginComponent implements OnInit {
   };
 
   ngOnInit(): void {
+
+
+  
     this.loginForm = this.formBuilder.group({
       username: [
         '',
@@ -58,25 +64,28 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  async submitLogin() {
-    try {
-      this.user.username = this.loginForm.get('username')?.value;
-      this.user.password = this.loginForm.get('password')?.value;
-      await this.loginService.login(this.user);
-      sessionStorage.setItem('username', this.user.username);
-      this.router.navigate(['']);
-    } catch (error) {
-      this.loginForm.reset();
-      this.usernameInput.nativeElement.focus();
-      this.passwordInput.nativeElement.focus();
-      this.openSnackBarRed('Nome de usuário ou senha inválidos!', 'Fechar');
-    }
-  }
+   
 
-  getTokenAuthorization() {
-    this.tokenAuthorization = localStorage.getItem('tokenUser');
-    this.isAuthenticate = this.tokenAuthorization != null;
-  }
+    async submitLogin() {
+      try {
+        this.user.username = this.loginForm.get('username')?.value;
+        this.user.password = this.loginForm.get('password')?.value;
+        await this.loginService.login(this.user);
+        sessionStorage.setItem('username', this.user.username);
+        this.router.navigate(['']);
+       } 
+        catch (error) {
+          this.loginForm.reset();
+          this.usernameInput.nativeElement.focus();
+          this.passwordInput.nativeElement.focus();
+          this.openSnackBarRed('Nome de usuário ou senha inválidos!', 'Fechar');
+     }
+   }
+
+   getTokenAuthorization() {
+     this.tokenAuthorization = localStorage.getItem('tokenUser');
+     this.isAuthenticate = this.tokenAuthorization != null;
+   }
 
   openSnackBarRed(message: string, action: string) {
     this._snackBar.open(message, action, {
