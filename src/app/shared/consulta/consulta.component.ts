@@ -7,10 +7,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AgendamentoService } from 'src/app/core/services/agendamento.service';
 import { ConsultaService } from 'src/app/core/services/consulta.service';
 
-
-
-
-
 @Component({
   selector: 'app-consulta',
   templateUrl: './consulta.component.html',
@@ -47,7 +43,7 @@ export class ConsultaComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private modalService: AgendamentoService,
-    private dialogRef: MatDialogRef<AgendamentoService>,
+    private dialog: MatDialogRef<AgendamentoService>,
     private consultaService: ConsultaService,
     private _snackBar: MatSnackBar
   ) {}
@@ -151,7 +147,7 @@ export class ConsultaComponent implements OnInit {
         .subscribe({
           next: () => {
             this.openSnackBarGreen('Consulta Marcada!', 'Fechar');
-            this.dialogRef.close();
+            this.dialog.close();
             this.criarConsultaForm.reset();
           },
           error: () => {
@@ -165,7 +161,7 @@ export class ConsultaComponent implements OnInit {
   }
 
   cancel(): void {
-    this.dialogRef.close();
+    this.dialog.close();
   }
 
 }

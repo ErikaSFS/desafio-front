@@ -10,13 +10,18 @@ import { ConsultaComponent } from './shared/consulta/consulta.component';
 const routes: Routes = [
 
 
-  { path: '', component: HomeComponent, children: [{path: 'home', 
+  { path: '', 
+  component: HomeComponent, 
+  children: [{path: 'home', 
   component: HomeComponent}],
-  canActivate: [AuthGuard] },
-  
-  { path: 'login', component: LoginComponent},
+  canActivate: [AuthGuard] 
+},
+
+  { path: '', redirectTo: 'login',
+    pathMatch: 'full'},
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'consulta', component: ConsultaComponent},
+ // { path: 'login/consulta', component: ConsultaComponent},
 
   //{ path: '**', redirectTo: '' }
   

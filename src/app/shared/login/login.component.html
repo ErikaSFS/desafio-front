@@ -1,14 +1,15 @@
-
+ 
 <div class="container">
     <div class="header">
-        <img mat-card-image src="../../../assets/logo.png"  alt="Intmed Logo">
+        <img mat-card-image src="../../../assets/logo.png"  alt="Intmed Logo"/>
     </div>
 
     <div class="body">
         <form class="input" [formGroup]="loginForm">
             <mat-form-field class="email" [style.width.px]='400' appearance="outline">
                 <mat-label>Email ou Login</mat-label>
-                <input type="email" 
+                <input 
+                type="email" 
                 name="username"
                 formControlName="username"
                 id="username"
@@ -22,7 +23,7 @@
                 </mat-error>
 
                 <mat-error *ngIf="loginForm.get('username')?.hasError('minlength')">
-                    O Campo deve ter pelo menos 4 caracteres.
+                    O Campo deve ter pelo menos 5 caracteres.
                   </mat-error>
           
                   <mat-error *ngIf="loginForm.get('username')?.hasError('maxlength')">

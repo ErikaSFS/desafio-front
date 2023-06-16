@@ -18,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { httpInterceptorProviders } from './core/auth/http-interceptors';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -50,7 +50,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSnackBarModule,
     MatDialogModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+  
 
 
   ],
