@@ -20,10 +20,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AltoTokenInterceptor } from './app.interceptor.module';
 import { httpInterceptorProviders } from './core/http-interceptors';
+import { HomeComponent } from './shared/home/home.component';
+import { RegisterComponent } from './shared/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    RegisterComponent,
+    
   
   ],
 
